@@ -2,26 +2,27 @@ diff --git a/timezone/zdump.c b/timezone/zdump.c
 index 065d5ab..e7ffcf5 100644
 --- a/timezone/zdump.c
 +++ b/timezone/zdump.c
-@@ -89,8 +89,9 @@
- #define ISDIGIT(c) ((unsigned)(c) - '0' <= 9)
- #endif
+@@ -38,6 +38,9 @@
+ #include <string.h>
+ #include <time.h>
  
--ATTRIBUTE_REPRODUCIBLE static intmax_t delta(struct tm *, struct tm *);
--ATTRIBUTE_REPRODUCIBLE static time_t yeartot(intmax_t);
-+static intmax_t delta(struct tm *, struct tm *) ATTRIBUTE_REPRODUCIBLE;
-+static time_t yeartot(intmax_t) ATTRIBUTE_REPRODUCIBLE;
++#ifdef __GNUC__
++#pragma GCC diagnostic ignored "-Wmaybe-uninitialized"
++#endif
  
- static intmax_t
- delta(struct tm * newp, struct tm * oldp)
+ #ifndef TYPE_BIT
+ #define TYPE_BIT(type)	(CHAR_BIT * (int) sizeof (type))
 diff --git a/timezone/zic.c b/timezone/zic.c
-index 08f6a0d..f4fa18b 100644
+index 342fabc..75bbf4e 100644
 --- a/timezone/zic.c
 +++ b/timezone/zic.c
-@@ -3629,7 +3629,8 @@ static int stringoffset(char *, zic_t);
- static int stringrule(char *, zic_t);
+@@ -49,6 +49,9 @@
+ #include <time.h>
+ #include <unistd.h>
  
--ATTRIBUTE_REPRODUCIBLE static int error(char const *string);
-+static int error(char const *string) ATTRIBUTE_REPRODUCIBLE;
++#ifdef __GNUC__
++#pragma GCC diagnostic ignored "-Wmaybe-uninitialized"
++#endif
  
- static int
- error(char const *string)
+ #ifndef ZIC_MAX_ABBR_LEN_WO_WARN
+ #define ZIC_MAX_ABBR_LEN_WO_WARN	6
