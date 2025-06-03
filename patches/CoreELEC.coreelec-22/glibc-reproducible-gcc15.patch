@@ -1,0 +1,27 @@
+diff --git a/timezone/zdump.c b/timezone/zdump.c
+index 065d5ab..e7ffcf5 100644
+--- a/timezone/zdump.c
++++ b/timezone/zdump.c
+@@ -89,8 +89,9 @@
+ #define ISDIGIT(c) ((unsigned)(c) - '0' <= 9)
+ #endif
+ 
+-ATTRIBUTE_REPRODUCIBLE static intmax_t delta(struct tm *, struct tm *);
+-ATTRIBUTE_REPRODUCIBLE static time_t yeartot(intmax_t);
++static intmax_t delta(struct tm *, struct tm *) ATTRIBUTE_REPRODUCIBLE;
++static time_t yeartot(intmax_t) ATTRIBUTE_REPRODUCIBLE;
+ 
+ static intmax_t
+ delta(struct tm * newp, struct tm * oldp)
+diff --git a/timezone/zic.c b/timezone/zic.c
+index 08f6a0d..f4fa18b 100644
+--- a/timezone/zic.c
++++ b/timezone/zic.c
+@@ -3629,7 +3629,8 @@ static int stringoffset(char *, zic_t);
+ static int stringrule(char *, zic_t);
+ 
+-ATTRIBUTE_REPRODUCIBLE static int error(char const *string);
++static int error(char const *string) ATTRIBUTE_REPRODUCIBLE;
+ 
+ static int
+ error(char const *string)
