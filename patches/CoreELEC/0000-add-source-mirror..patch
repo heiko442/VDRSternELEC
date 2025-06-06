@@ -7,7 +7,7 @@ index 4d61b2423f..4494aeba05 100644
  
  # Distribution Specific source location
 -  DISTRO_MIRROR="http://sources.coreelec.org http://sources.libreelec.tv/mirror"
-+  DISTRO_MIRROR="http://sources.coreelec.org http://sources.libreelec.tv/mirror https://invisible-mirror.net/archives https://invisible-island.net/archives"
++  DISTRO_MIRROR="http://sources.coreelec.org http://sources.libreelec.tv/mirror https://sourceforge.net/projects/immortalwrt/files/sources https://mirrors.ircam.fr/pub/gentoo-distfiles/distfiles/2c https://invisible-mirror.net/archives https://invisible-island.net/archives"
    DISTRO_SRC="http://sources.libreelec.tv/$LIBREELEC_VERSION"
  
  # Addon Server Url
