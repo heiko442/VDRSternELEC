@@ -23,5 +23,5 @@ PKG_CMAKE_OPTS_TARGET="-DWITH_AS3=OFF \
                        -DWITH_OPENSSL=OFF \
                        -DBUILD_SHARED_LIBS=OFF \
                        -DBUILD_COMPILER=OFF \
-                       -DCMAKE_POSITION_INDEPENDENT_CODE=ON"
+                       -DCMAKE_POSITION_INDEPENDENT_CODE=ON \
                        -DCMAKE_POLICY_VERSION_MINIMUM=3.5"
